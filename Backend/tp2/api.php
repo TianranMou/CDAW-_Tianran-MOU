@@ -52,7 +52,7 @@ $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY));
 error_log("Parsed query string: " . $uri);
 
 // 改进的路由处理
-if ($uri && !strpos($uri, '/')) {
+if ($uri && !strpos($uri, '/')) {   
     // 如果查询字符串不包含斜杠，直接作为控制器名
     $route = ['controller' => $uri];
     error_log("Simple route: controller=" . $uri);
