@@ -34,7 +34,7 @@ class LoginController {
         
         $user = UserModel::tryLogin($input['login']);
         
-        // 使用hash_equals比较哈希值，而不是使用password_verify
+        // use hash_equals to 
         if (empty($user) || !hash_equals($user['password'], $input['password'])) {
             return $this->unauthorizedResponse();
         }
