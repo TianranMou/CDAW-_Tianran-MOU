@@ -26,7 +26,10 @@ class LoginController {
     }
     
     private function login() {
+        //
         $input = (array) json_decode(file_get_contents('php://input'), TRUE);
+        //change!!!
+        $input = $this->request->getContents();
         
         if (!isset($input['login']) || !isset($input['password'])) {
             return $this->unprocessableEntityResponse();
