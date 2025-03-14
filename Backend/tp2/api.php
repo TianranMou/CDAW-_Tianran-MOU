@@ -81,6 +81,16 @@ else if ($controllerName === 'users') {
     error_log("Users collection operation");
     $controller = new UsersController($requestMethod);
 } 
+else if ($controllerName === 'login') {
+    // 登录路由
+    error_log("Login operation");
+    $controller = new LoginController($requestMethod);
+} 
+else if ($controllerName === 'validatetoken') {
+    // 令牌验证路由
+    error_log("Token validation operation");
+    $controller = new ValidateTokenController($requestMethod);
+}
 else {
     // 无效路由
     error_log("Invalid route: " . $controllerName);

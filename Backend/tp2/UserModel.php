@@ -53,4 +53,19 @@ class UserModel
         
         return $statement->rowCount();
     }
+    
+    public static function tryLogin($email) {
+        $pdo = DatabaseConnector::current();
+        $query = "SELECT * FROM users WHERE email = :email";
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(':email', $email);
+        $statement->execute();
+        
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public static function verifyPassword($inputPassword, $hashedPassword) {
+        // 使用安全的密码验证，防止时序攻击
+        return password_verify($inputPassword, $hashedPassword);
+    }
 }

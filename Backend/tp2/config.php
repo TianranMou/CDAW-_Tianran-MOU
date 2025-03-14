@@ -13,6 +13,10 @@ define('DB_DATABASE', _MYSQL_DBNAME);
 define('DB_USERNAME', _MYSQL_USER);
 define('DB_PASSWORD', _MYSQL_PASSWORD);
 
+// JWT配置
+define('JWT_BACKEND_KEY', '6d8HbcZndVGNAbo4Ih1TGaKcuA1y2BKs-I5CmP'); 
+define('JWT_ISSUER', isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost');
+
 $connectionString = "mysql:host=" . _MYSQL_HOST;
 
 if(defined('_MYSQL_PORT'))

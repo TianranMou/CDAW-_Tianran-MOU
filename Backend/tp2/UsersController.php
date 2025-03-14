@@ -21,12 +21,15 @@ class UsersController {
                 }
                 break;
             case 'POST':
+                $this->requireAuth(); // 添加认证检查
                 $response = $this->createUser();
                 break;
             case 'PUT':
+                $this->requireAuth(); // 添加认证检查
                 $response = $this->updateUser($this->userId);
                 break;
             case 'DELETE':
+                $this->requireAuth(); // 添加认证检查
                 $response = $this->deleteUser($this->userId);
                 break;
             default:
@@ -129,5 +132,19 @@ class UsersController {
         $response['status_code_header'] = 'HTTP/1.1 404 Not Found';
         $response['body'] = json_encode(['error' => 'Resource not found']);
         return $response;
+    }
+
+    private function requireAuth() {
+        if (!AuthMiddleware::isAuthorized()) {
+            $response['status_code_header'] = 'HTTP/1.1 401 Unauthorized';
+            $response['body'] = json_encode([
+                'error' => 'Authentication required'
+            ]);
+            header($response['status_code_header']);
+            if ($response['body']) {
+                echo $response['body'];
+            }
+            exit();
+        }
     }
 }
