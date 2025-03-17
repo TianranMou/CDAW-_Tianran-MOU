@@ -3,28 +3,39 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Comment system</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div id="users">
             <div id="user1">
                 <h4>Kazuma Kiryū</h4>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm</p>
                 <button class="modify">Modify Comment</button>
                 <button class="remove">Remove Comment</button>
             </div>
             <div id="user2">
                 <h4>Gorō Majima</h4>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis</p>
                 <button class="modify">Modify Comment</button>
                 <button class="remove">Remove Comment</button>
             </div>
             <div id="user3">
                 <h4>Yumi Sawamura</h4>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
                 <button class="modify">Modify Comment</button>
                 <button class="remove">Remove Comment</button>
             </div>
         </div>
         <button id="addNew">Add new Comment</button>
+        
+        <!-- 添加表单，默认隐藏 -->
+        <form id="myForm">
+            <input type="hidden" id="currentUserId" value="">
+            <textarea id="commentText" disabled></textarea>
+            <input type="submit" id="submitComment" value="Update Comment" disabled>
+        </form>
+        
+        <script src="comments.js"></script>
     </body>
 </html>
