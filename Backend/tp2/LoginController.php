@@ -26,10 +26,7 @@ class LoginController {
     }
     
     private function login() {
-        //
         $input = (array) json_decode(file_get_contents('php://input'), TRUE);
-        //change!!!
-        $input = $this->request->getContents();
         
         if (!isset($input['login']) || !isset($input['password'])) {
             return $this->unprocessableEntityResponse();
@@ -37,7 +34,7 @@ class LoginController {
         
         $user = UserModel::tryLogin($input['login']);
         
-        // use hash_equals to 
+        // 使用hash_equals比较哈希值，而不是使用password_verify
         if (empty($user) || !hash_equals($user['password'], $input['password'])) {
             return $this->unauthorizedResponse();
         }

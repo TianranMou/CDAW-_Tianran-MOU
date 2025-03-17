@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>DOM</title>
+    </head>
+    <body>
+        <div id="caroussel">
+            <p class="descr"> p1 </p>
+            <p class="descr"> p2 </p>
+        </div>
+        <p id="p3"></p>
+        
+        <script>
+            
+            let monCaroussel = document.getElementById("caroussel");
+            
+            monCaroussel.children[0].style.background = "lightblue";
+            
+            
+            monCaroussel.children[1].style.display = "none";
+            
+            // setTimeout(function() {
+            //     monCaroussel.children[1].style.display = "block";
+            // }, 2000);
+            
+            // add a new Paragraph
+            let newParagraph = document.createElement("p");
+            newParagraph.textContent = "This is a new Paragraph";
+            newParagraph.className = "descr";
+            newParagraph.style.background = "lightgreen";
+            monCaroussel.appendChild(newParagraph);
+        </script>
+    </body>
+</html>
